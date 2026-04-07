@@ -3,85 +3,102 @@ using namespace std;
 
 int arr[20], B[20];
 int n;
+
 void input()
 {
-      while (true)
-   {
-      cout<< "Enter the number of elements in the array:";
-      cin>>n;
+    while (true)
+    {
+        cout << "Enter the number of elements in the array:";
+        cin >> n;
 
-      if (n<=20)
-      {
-          break;
-      }
-      else
-      {
-          cout<< "\nMaximum array length is 20 :";
-      }
-   }
-cout<< "\n------------"<<endl;
-cout<< "\nEnter array elements:"<<endl;
-cout<< "\n-------------"<<endl;
-    for (int i=0; i<n; i++)
-{
-    cout<< "Array Index"<<i<< ";";
-    cin>>arr[i];
+        if (n <= 20)
+        {
+            break;
+        }
+        else
+        {
+            cout << "\nMaximum array length is 20 :";
+        }
+    }
+
+    cout << "\n------------" << endl;
+    cout << "\nEnter array elements:" << endl;
+    cout << "\n-------------" << endl;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Array Index " << i << ": ";
+        cin >> arr[i];
+    }
 }
-}
+
 void mergesort(int low, int high)
 {
-    if (low >=high)
-{
-    return;
-}
-   int mid = (low + high)/2;
+    if (low >= high)
+    {
+        return;
+    }
 
-mergesort(low,mid);
-mergesort(mid+1,high);
+    int mid = (low + high) / 2;
+
+    mergesort(low, mid);
+    mergesort(mid + 1, high);
 
     int i = low;
     int j = mid + 1;
     int k = low;
-    
-    while (i<=mid && j<=high)
-{
-    if (arr[1]<=arr[j])
+
+   
+    while (i <= mid && j <= high)
     {
-        B[k] = arr [i];
-        i++;
+        if (arr[i] <= arr[j]) 
+        {
+            B[k] = arr[i];
+            i++;
+        }
+        else
+        {
+            B[k] = arr[j];
+            j++;
+        }
+        k++;
     }
-    k++;
+
+
+    while (i <= mid)
+    {
+        B[k] = arr[i];
+        i++;
+        k++;
+    }
+
+  
+    while (j <= high)
+    {
+        B[k] = arr[j];
+        j++;
+        k++;
+    }
+
+    for (int x = low; x <= high; x++)
+    {
+        arr[x] = B[x];
+    }
 }
-{
-    while (j<=high)
-{
-    B[k] = arr[j];
-    j++;
-    k++;
-}
-for (int x = low; x<= high;x++)
-{
-    arr[x] = B[x];
-}
-}
-    void output()
+
+void output()
 {
     cout << "\nData after sorting (Merge Sort): " << endl;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)  
     {
         cout << arr[i] << " ";
     }
     cout << endl;
-    
 }
+
 int main()
 {
     input();
-    mergesort(0, n-1); 
+    mergesort(0, n - 1);
     output();
-}
-}
-int main()
-{
-    return 0;
 }
