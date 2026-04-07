@@ -52,6 +52,14 @@ mergesort(mid+1,high);
     }
     k++;
 }
+{
+    while (j<=high)
+{
+    B[k] = arr[j];
+    j++;
+    k++;
+}
+}
 }
 int main()
 {
