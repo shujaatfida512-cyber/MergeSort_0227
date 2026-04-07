@@ -16,9 +16,12 @@ void input()
       }
       else
       {
-          cout<< "\n :";
+          cout<< "\nMaximum array length is 20 :";
       }
    }
+cout<< "\n------------"<<endl;
+cout<< "\nEnter array elements:"<<endl;
+cout<< "\n-------------"<<endl;
 }
 int main()
 {
