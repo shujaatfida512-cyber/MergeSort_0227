@@ -42,6 +42,16 @@ mergesort(mid+1,high);
     int i = low;
     int j = mid + 1;
     int k = low;
+    
+    while (i<=mid && j<=high)
+{
+    if (arr[1]<=arr[j])
+    {
+        B[k] = arr [i];
+        i++;
+    }
+    k++;
+}
 }
 int main()
 {
