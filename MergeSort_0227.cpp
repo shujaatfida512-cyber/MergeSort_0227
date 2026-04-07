@@ -38,6 +38,10 @@ void mergesort(int low, int high)
 
 mergesort(low,mid);
 mergesort(mid+1,high);
+
+    int i = low;
+    int j = mid + 1;
+    int k = low;
 }
 int main()
 {
